@@ -1,0 +1,9 @@
+                    <article itemscope itemtype="http://schema.org/Article" class="post">
+                        <div class="date">
+                            {{ .Date.Format "Monday, 2 January 2006" }}
+                        </div>
+                        <div class="text">
+                            <h2><a class="permalink" href="{{ .Permalink }}"><span itemprop="name">{{ .Title }}</span></a></h2>
+                           <div itemprop="articleBody">{{ .Content }}</div>
+                        </div>
+                    </article>

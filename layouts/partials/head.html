@@ -1,0 +1,31 @@
+    <head>
+        <base href="{{ .Site.BaseUrl }}">
+        <title>{{ .Site.Title }}</title>
+        <link rel="canonical" href="{{ .Permalink }}">
+        <link href="{{ .RSSlink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="apple-touch-icon" href="/media/logo_128.png">
+        <link rel="shortcut icon" href="/media/logo_128.png">
+        <meta name="description" content="{{ .Site.Params.description }}"/>
+
+        <!-- opengraph info -->
+        {{ template "_internal/opengraph.html" . }}
+
+        <!-- twitter card info -->
+        {{ template "_internal/twitter_cards.html" . }}
+
+        <!-- google news info -->
+        {{ template "_internal/google_news.html" . }}
+
+        <!-- schema info -->
+        {{ template "_internal/schema.html" . }}        
+                
+        <!-- Styles and other <link> items included here -->
+        {{ partial "head_includes.html" . }}
+        
+        <!--[if lt IE 9]>
+            <script src="http://getbootstrap.com/assets/js/html5shiv.js"></script>
+            <script src="http://getbootstrap.com/assets/js/respond.min.js"></script>
+        <![endif]-->
+    </head>

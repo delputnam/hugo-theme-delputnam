@@ -1,0 +1,531 @@
+{{ $grayBase := "#000000" }}
+{{ $grayDarker := "#222222" }}
+{{ $grayDark := "#444444" }}
+{{ $gray := "#777777" }}
+{{ $grayLight := "#808080" }}
+{{ $grayLighter := "#dddddd" }}
+
+{{ $primaryColor := "#d9230f" }}
+{{ $successColor := "#469408" }}
+{{ $infoColor := "#029ACF" }}
+{{ $warningColor := "#9B479F" }}
+{{ $dangerColor := "#D9831F" }}
+
+{{ $primaryColorHover := "#8f170a" }}
+{{ $successColorHover := "#224904" }}
+{{ $infoColorHover := "#015e7e" }}
+{{ $warningColorHover := "#672f6a" }}
+{{ $dangerColorHover := "#935915" }}
+
+{{ $bodyBackgroundColor := "#FCFCFC" }}
+{{ $textColor := "#444444" }}
+{{ $linkColor := "#d9230f" }}
+{{ $linkHoverColor := "#8f170a" }}
+
+{{ $fontSizeBase := "18px" }}
+{{ $fontWeightBase := "400" }}
+{{ $fontFamilyBase := "" }}
+
+{{ $fontSizeLarge := "1.3846153846em" }}
+{{ $fontSizeSmall := "0.9230769231em" }}
+{{ $fontSizeH1 := "2.5692307692em" }}
+{{ $fontSizeH2 := "2.3076923077em" }}
+{{ $fontSizeH3 := "1.8461538462em" }}
+{{ $fontSizeH4 := "1.5846153846em" }}
+{{ $fontSizeH5 := "1em" }}
+{{ $fontSizeH6 := "0.9230769231em" }}
+{{ $fontSizeBlockquote := "1em" }}
+
+{{ $headingFontWeight := "300" }}
+{{ $headingLineHeight := "1.4" }}
+{{ $headingFontFamily := "Open Sans" }}
+
+{{ $paragraphLineHeight := "1.5" }}
+
+{{ $dateFontFamily := $headingFontFamily }}
+
+{{ $headingColor := "#444444" }}
+
+{{ $linkHoverUnderline := false }}
+
+        <style>
+/*            body {
+                font-family: "{{ $fontFamilyBase }}";
+                font-size: {{ $fontSizeBase }};
+                font-weight: {{ $fontWeightBase }};
+                color: {{ $textColor }};
+                background-color: {{ $bodyBackgroundColor }};
+            }
+            a {
+                color: {{ $linkColor }};
+            }
+            a:hover,
+            a:focus {
+                color: {{ $linkHoverColor }};
+                {{ if $linkHoverUnderline }}
+                    text-decoration: underline;
+                {{ else }}
+                    text-decoration: none;
+                {{ end }}
+            }
+            h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+                font-family: "{{ $headingFontFamily }}";
+                font-weight: {{ $headingFontWeight }};
+                line-height: {{ $headingLineHeight }};
+                color: {{ $headingColor }};
+            }
+            h1,
+            .h1 {
+              font-size: {{ $fontSizeH1 }};
+            }
+            h2,
+            .h2 {
+              font-size: {{ $fontSizeH2 }};
+            }
+            h3,
+            .h3 {
+              font-size: {{ $fontSizeH3 }};
+            }
+            h4,
+            .h4 {
+              font-size: {{ $fontSizeH4 }};
+            }
+            h5,
+            .h5 {
+              font-size: {{ $fontSizeH5 }};
+            }
+            h6,
+            .h6 {
+              font-size: {{ $fontSizeH6 }};
+            }
+
+            p {
+                margin: 0 0 18px;
+                line-height: {{ $paragraphLineHeight }};
+            }
+            p + h1, p + h2, p + h3, p + h4, p + h5, p + h6,
+            ul + h1, ul + h2, ul + h3, ul + h4, ul + h5, ul + h6 {
+                margin-top: 1.5em;
+            }
+
+            figcaption h4 {
+                font-size: 0.8em;
+            }
+            .text-muted {
+              color: {{ $grayLight }};
+            }
+            .text-primary {
+              color: {{ $primaryColor }};
+            }
+            a.text-primary:hover {
+              color: {{ $linkHoverColor }};
+            }
+            .text-success {
+              color: {{ $successColor }};
+            }
+            a.text-success:hover {
+              color: {{ $successColorHover }};
+            }
+            .text-info {
+              color: {{ $infoColor }};
+            }
+            a.text-info:hover {
+              color: {{ $infoColorHover }};
+            }
+            .text-warning {
+              color: {{ $warningColor }};
+            }
+            a.text-warning:hover {
+              color: {{ $warningColorHover }};
+            }
+            .text-danger {
+              color: {{ $dangerColor }};
+            }
+            a.text-danger:hover {
+              color: {{ $dangerColorHover }};
+            }
+            .bg-primary {
+              background-color: {{ $primaryColor }};
+            }
+            a.bg-primary:hover {
+              background-color: {{ $primaryColorHover }};
+            }
+            .bg-success {
+              background-color: {{ $successColor }};
+            }
+            a.bg-success:hover {
+              background-color: {{ $successColorHover }};
+            }
+            .bg-info {
+              background-color: {{ $infoColor }};
+            }
+            a.bg-info:hover {
+              background-color: {{ $infoColorHover }};
+            }
+            .bg-warning {
+              background-color: {{ $warningColor }};
+            }
+            a.bg-warning:hover {
+              background-color: {{ $warningColorHover }};
+            }
+            .bg-danger {
+              background-color: {{ $dangerColor }};
+            }
+            a.bg-danger:hover {
+              background-color: {{ $dangerColorHover }};
+            }
+            abbr[title],
+            abbr[data-original-title] {
+                border-bottom: 1px dotted {{ $grayLight }};
+            }
+            blockquote {
+              border-left: 5px solid {{ $grayLighter }};
+              font-size: {{ $fontSizeBlockquote }};
+            }
+            blockquote footer,
+            blockquote small,
+            blockquote .small {
+                color: {{ $grayLight }};
+            }
+            .blockquote-reverse,
+            blockquote.pull-right {
+                border-right: 5px solid {{ $grayLighter }};
+            }
+            .table > thead > tr > th,
+            .table > tbody > tr > th,
+            .table > tfoot > tr > th,
+            .table > thead > tr > td,
+            .table > tbody > tr > td,
+            .table > tfoot > tr > td {
+                border-top: 1px solid {{ $grayLighter }};
+            }
+            .table > thead > tr > th {
+                border-bottom: 2px solid {{ $grayLighter }};
+            }
+            .table > tbody + tbody {
+                border-top: 2px solid {{ $grayLighter }};
+            }
+            .table .table {
+                background-color: {{ $bodyBackgroundColor }};
+            }
+            .table-bordered {
+                border: 1px solid {{ $grayLighter }};
+            }
+            .table-bordered > thead > tr > th,
+            .table-bordered > tbody > tr > th,
+            .table-bordered > tfoot > tr > th,
+            .table-bordered > thead > tr > td,
+            .table-bordered > tbody > tr > td,
+            .table-bordered > tfoot > tr > td {
+                border: 1px solid {{ $grayLighter }};
+            }
+            output {
+                font-size: {{ $fontSizeBase }};
+                color: {{ $textColor }};
+            }
+            .form-control {
+                font-size: {{ $fontSizeBase }};
+                color: {{ $gray }};
+                border: 1px solid {{ $grayLighter }};
+            }
+            .form-control::-moz-placeholder {
+                color: {{ $grayLighter }};
+            }
+            .form-control:-ms-input-placeholder {
+                color: {{ $grayLighter }};
+            }
+            .form-control::-webkit-input-placeholder {
+                color: {{ $grayLighter }};
+            }
+            .form-control[disabled],
+            .form-control[readonly],
+            fieldset[disabled] .form-control {
+                background-color: {{ $grayLighter }};
+            }
+
+            header {
+                margin-bottom: 72px;
+            }
+            header {
+                margin-top: 32px;
+            }
+            .logo-wrap img {
+                margin-top: 15px;
+                width: 100%;
+                height: auto;
+            }
+            .title-wrap h1 {
+                margin: 0;
+                text-transform: uppercase;
+                letter-spacing: -0.05em;
+            }
+
+            .title-wrap .description {
+                font-size: 1.2em;
+            }
+            .center {
+                text-align: center;
+            }
+
+            footer {
+                padding-top: 40px;
+                padding-bottom: 30px;
+                margin-top: 80px;
+                text-align: center;
+                font-size: 0.8em;
+            }
+
+            .sidebar-item + .sidebar-item {
+                margin-top: 0.3em;
+            }
+            .sidebar h5 {
+                margin: 0;
+            }
+            .btn-img {
+                max-height: 17px;
+            }
+            .btn-img, a.sidebar-item .glyphicon {
+                float:left;
+                left:10px;
+                position: relative;
+                top: 2px;
+            }
+            .date {
+                color: {{ $grayLight }};
+                text-transform: uppercase;
+                font-size: 0.9em;
+                font-family: "{{ $dateFontFamily }}";
+            }
+            .post img {
+                max-width: 100%;
+            }
+            .link-post {
+                margin-bottom: 10px;
+                padding-right: 30px;
+                padding-left: 30px;
+                white-space: normal;
+            }
+            .thumbnail {
+                margin-bottom: 15px;
+            }
+            .photoset {
+                width: 100%;
+                height: 100%;   
+            }
+            .photoset .caption {
+                visibility: hidden;
+                opacity:0;
+                background: rgba(0,0,0,0.4);
+                position: absolute;
+                right: 20px;
+                bottom: 20px;
+                left: 20px;
+                z-index: 10;
+                padding-top: 8%;
+                padding-bottom: 8%;
+                color: #ffffff;
+                text-align: center;
+                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+                transition: visibility 0.2s linear, opacity 0.2s linear;
+            }
+            .photoset:hover .caption {
+                visibility: visible;
+                opacity:1;
+            }
+            .caption {
+                margin-top: 1em;
+            }
+            .caption p {
+                margin: 0 0 1em 0;
+            }
+            .caption blockquote p {
+                font-size: 1em;
+            }
+            .caption blockquote {
+                margin: 0 0 1em 0;
+                padding: 0 0 0 15px;
+            }
+            .post + .post {
+                margin-top: 64px;
+            }
+            .fa {
+                font-size: 0.8em;
+                color: {{ $grayLight }};
+            }
+            .permalink .fa-link {
+                position: relative;
+                top: -1px;
+            }
+            .post-footer .fa {
+                color: #ccc;
+                font-size: 20px;
+            }
+            .post-footer-top {
+                margin-bottom: 0.8em;
+            }
+            .post-controls {
+                display: table-cell;
+                vertical-align: middle;
+            }
+            .post-controls {
+                margin-left: 20px;
+            }
+            .post-controls .controls-wrapper {
+                text-align: right;
+                margin-right: 20px;
+            }            
+            .post-controls .control {
+                display: inline-block;
+                height: 28px;
+                position: relative;
+                text-align: left;
+                vertical-align: middle;
+            }
+            .post-controls .control.share-control .share {
+                color: #ccc;
+                display: block;
+                height: 21px;
+                margin: 2px auto auto;
+                text-decoration: none;
+                width: 21px;
+            }
+            .share-menu {
+                bottom: 25px;
+            }
+            .share-menu ul li a, .share-menu ul li a:hover {
+                opacity: 1;
+            }
+            .pop-menu {
+                display: none;
+                background: #fff;
+                border-radius: 3px;
+                position: absolute;
+                bottom: 35px;
+                left: -64px;
+                width: 146px;
+                box-shadow: 0 1px 5px rgba(0,0,0,.25);
+                z-index: 10;
+                opacity: 0;
+            }
+            .pop-menu ul {
+                float: none;
+                margin: 0!important;
+                padding: 0;
+                list-style: none;
+            }
+            .pop-menu ul li.open-in-app {
+                display: none;
+            }
+            .pop-menu ul li:first-child {
+                border-top: none;
+            }
+            .pop-menu ul li {
+                border-left: none;
+                float: none;
+                height: auto;
+                position: relative;
+                width: auto;
+            }
+            .pop-menu ul li:hover {
+                background: #e6eff7;;
+            }
+            .pop-menu ul li a {
+                background: 0 0;
+                color: #444;
+                display: block;
+                font-size: 14px;
+                height: auto;
+                margin: 0;
+                padding: 6px 10px 6px 10px;
+                position: relative;
+                text-decoration: none;
+                width: auto;
+            }
+            .pop-menu .share-item.permalink i {
+                color: #444;
+                float: right;
+            }
+            .share-menu.active {
+                bottom: 35px;
+            }
+            .pop-menu.show {
+                display: block;
+                opacity: 1;
+                -webkit-transition: all .25s cubic-bezier(0.68,-.55,.265,1.55);
+                -o-transition: all .25s cubic-bezier(0.68,-.55,.265,1.55);
+                -ms-transition: all .25s cubic-bezier(0.68,-.55,.265,1.55);
+                -moz-transition: all .25s cubic-bezier(0.68,-.55,.265,1.55);
+                transition: all .25s cubic-bezier(0.68,-.55,.265,1.55);
+            }            
+            .tags {
+                display: inline;
+            }
+            .tags .tag {
+            }
+            .tags .tag + .tag:before {
+                content:'\b7\a0';
+            }
+
+            .pagination {
+                display: block;
+                margin-top: 64px;
+                font-family: "{{ $headingFontFamily }}";
+            }
+            .jump-navigation .page-link {
+                display: inline-block;
+
+            }
+            .jump-navigation .page-link {
+                border-radius: 50%;
+                height: 28px;
+                width: 28px;
+                display: inline-block;
+                line-height: 28px;
+            }
+            .jump-navigation .page-link {
+                background-color: {{ $grayLighter }};
+            }
+            .jump-navigation .page-link.active {
+                background-color: {{ $primaryColor }};
+            }
+            .jump-navigation .page-link.active a {
+                color: #fff;
+            }
+            .videoWrapper {
+                position: relative;
+                padding-bottom: 56.25%; /* 16:9 */
+                padding-top: 25px;
+                height: 0;
+                width: 100%;
+            }
+            .videoWrapper iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+
+            .footnotes {
+                font-size: 0.8em;
+            }
+            @media (max-width:767px) {
+                body {
+                    font-size: 15px;
+                }
+                header {
+                    text-align: center;
+                    margin-bottom: 42px;
+                }
+                .logo-wrap {
+                    float: none;
+                    width: 90px;
+                    max-width: 33%;
+                    margin: 24px auto 0 auto;
+                }
+                .logo-wrap img {
+                    margin-top: 0;
+                }
+            }
+*/
+        </style>

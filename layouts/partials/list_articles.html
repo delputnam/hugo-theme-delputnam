@@ -1,0 +1,7 @@
+{{ partial "page_begin.html" . }}
+    {{ $paginator := .Paginate .Data.Pages }}
+    {{ range $paginator.Pages }}
+        {{ partial "article_content.html" . }}
+    {{ end }}                    
+    {{ partial "paginator.html" . }}
+{{ partial "page_end.html" . }}

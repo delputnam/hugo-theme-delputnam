@@ -1,0 +1,110 @@
+// Import Bootstrap Compass integration
+@import "bootstrap-compass"
+// Import custom Bootstrap variables
+@import "bootstrap-variables"
+// Import Bootstrap for Sass
+@import "bootstrap"
+
+h1, .h1, h2, .h2, .h3 ,h3
+	margin-top: 12.5px
+
+p
+	line-height: 1.8
+	margin: 0 0 1.5em
+
+header
+	margin-bottom: 72px
+	margin-top: 32px
+
+blockquote
+	font-size: $font-size-base
+
+.logo-wrap img
+	margin-top: 15px
+	width: 100%
+	height: auto
+
+.title-wrap
+	h1
+		margin: 0
+		text-transform: uppercase
+
+	.description
+		font-size: 1.2em
+
+.center
+	text-align: center
+
+footer
+	padding-top: 40px
+	padding-bottom: 30px
+	margin-top: 80px
+	text-align: center
+	font-size: 0.8em
+
+.date
+	color: $gray-light
+	text-transform: uppercase
+	font-size: 0.9em
+	font-family: $font-family-sans-serif
+
+.post + .post
+	margin-top: 80px
+
+.post img
+	max-width: 100%
+
+figcaption h4
+	font-size: 0.85em
+
+.pagination
+	display: block
+	margin-top: 80px
+	font-family: $font-family-sans-serif
+	
+.jump-navigation 
+	padding-top: 5px
+
+	.page-link
+		display: inline-block
+		border-radius: 50%
+		height: 28px
+		width: 28px
+		display: inline-block
+		line-height: 28px
+		background-color: $gray-lighter
+
+		a
+			text-decoration: none
+
+		&.active
+			background-color: $brand-primary
+	     
+			& a
+				color: #fff
+
+.footnotes
+	font-size: 0.8em
+
+.right
+	text-align: right
+	display: block
+
+@media (max-width:767px)
+	$font-size-mobile: $font-size-base * 0.83
+	body
+		font-size: $font-size-mobile
+	header
+		text-align: center
+		margin-bottom: 42px
+	blockquote
+		font-size: $font-size-mobile
+	.logo-wrap
+		float: none
+		width: 90px
+		max-width: 33%
+		margin: 24px auto 0 auto
+
+		img
+			margin-top: 0
+

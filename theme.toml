@@ -1,0 +1,17 @@
+name = "delputnam"
+license = "MIT"
+licenselink = "https://github.com/.../.../LICENSE.md"
+description = ""
+homepage = "http://siteforthistheme.com/"
+tags = ["", ""]
+features = ["", ""]
+
+[author]
+  name = "Del Putnam"
+  homepage = "delputnam.me"
+
+# If porting an existing theme
+[original]
+  name = ""
+  homepage = ""
+  repo = ""
