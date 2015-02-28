@@ -3,4 +3,5 @@
                             <h2><a class="permalink" href="{{ .Permalink }}"><span itemprop="name">{{ .Title }}</span></a></h2>
                            <div itemprop="articleBody">{{ .Content }}</div>
                         </div>
-                    </article>
+						{{ partial "tags.html" . }} 
+					</article>

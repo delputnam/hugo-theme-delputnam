@@ -1,0 +1,22 @@
+            <div class="row prev-next">
+            	<div class="col-xs-5 text-left">
+                {{ if .Next }}
+                	{{ if ne .Next.Type "page" }}
+        	        <a class="btn btn-sm btn-default prev" href="{{ .Next.Permalink }}">
+        	            <i class="fa fa-arrow-left"></i><span class="hidden-xs"> Previous Post</span>
+        	        </a><br>
+                    <span class="small text-info">&ldquo;{{ .Next.Title }}&rdquo;</span>
+                	{{ end }}
+                {{ end }}
+                </div>
+                <div class="col-xs-5 col-xs-offset-2 text-right">
+                {{ if .Prev }}
+                	{{ if ne .Prev.Type "page" }}
+        	        <a class="btn btn-sm btn-default next" href="{{ .Prev.Permalink }}">
+        	        	<span class="hidden-xs">Next Post </span><i class="fa fa-arrow-right"></i>
+        	        </a><br>
+        	        <span class="small text-info">&ldquo;{{ .Prev.Title }}&rdquo;</span>
+                	{{ end }}
+                {{ end }}
+                </div>
+            </div>

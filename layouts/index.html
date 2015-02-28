@@ -1,5 +1,5 @@
 {{ partial "page_begin.html" . }}
-    {{ $paginator := .Paginate (where .Data.Pages "Section" "post") }}
+    {{ $paginator := .Paginate (first 400 (where .Data.Pages "Type" "!=" "page")) }}
     {{ range $paginator.Pages }}
         {{ partial "article_content.html" . }}
     {{ end }}                    
