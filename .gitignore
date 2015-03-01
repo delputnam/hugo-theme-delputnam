@@ -1,3 +1,4 @@
 public
 static/.sass-cache
 static/*.css.map
+.DS_Store
