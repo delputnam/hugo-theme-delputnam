@@ -7334,7 +7334,7 @@ blockquote {
 /* line 30, ../sass/styles.sass */
 .title-wrap h1 {
   margin: 0;
-  text-transform: uppercase;
+  font-family: "Oswald", sans-serif;
 }
 /* line 34, ../sass/styles.sass */
 .title-wrap .description {
