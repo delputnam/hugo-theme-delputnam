@@ -30,4 +30,34 @@ $(document).ready(function () {
 	  });
 
 	}).resize();
+
+	$(".footnote-ref").each(
+		function(){
+
+			var fnid = null,
+				fntext = '',
+				$fnel = null;
+
+			fnrefid = this.id;
+			fnrefid = fnrefid.replace(/:/g, "\\:");
+			fnid = fnrefid.replace("fnref","fn");
+
+			console.log('fnid: '+fnid);
+			
+			fntext = $('#' + fnid).text();
+			console.log('fntext: '+fntext);
+
+			$('#' + fnrefid + ' a').attr('data-toggle', 'popover');
+			$('#' + fnrefid + ' a').attr('data-content', fntext);
+	});
+
+	$('[data-toggle="tooltip"]').tooltip();
+	$('[data-toggle="popover"]').popover({
+		trigger: "click",
+		placement: "top"
+	});
+	$('a[data-toggle="popover"]').click(false);
 });
+
+//<a tabindex="0" href="#" data-toggle="popover" data-content="Vestibulum id ligula porta felis euismod semper. Donec ullamcorper nulla non metus auctor fringilla.">1</a>
+

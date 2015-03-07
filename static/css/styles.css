@@ -7377,35 +7377,42 @@ footer {
 figure.center {
   text-align: center;
 }
-/* line 63, ../sass/styles.sass */
-figure.small img {
-  max-width: 300px;
+
+/* line 62, ../sass/styles.sass */
+img.small {
+  max-width: 33%;
 }
 
-/* line 66, ../sass/styles.sass */
+/* line 65, ../sass/styles.sass */
+.popover {
+  width: 250px;
+  font-size: 1em;
+}
+
+/* line 69, ../sass/styles.sass */
 figcaption h4 {
   font-size: 0.85em;
   font-style: italic;
   color: #555555;
 }
 
-/* line 71, ../sass/styles.sass */
+/* line 74, ../sass/styles.sass */
 .prev-next {
   margin-top: 80px;
 }
 
-/* line 74, ../sass/styles.sass */
+/* line 77, ../sass/styles.sass */
 .pagination {
   display: block;
   margin-top: 80px;
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/* line 79, ../sass/styles.sass */
+/* line 82, ../sass/styles.sass */
 .jump-navigation {
   padding-top: 5px;
 }
-/* line 82, ../sass/styles.sass */
+/* line 85, ../sass/styles.sass */
 .jump-navigation .page-link {
   display: inline-block;
   border-radius: 50%;
@@ -7415,55 +7422,55 @@ figcaption h4 {
   line-height: 28px;
   background-color: #eeeeee;
 }
-/* line 91, ../sass/styles.sass */
+/* line 94, ../sass/styles.sass */
 .jump-navigation .page-link a {
   text-decoration: none;
 }
-/* line 94, ../sass/styles.sass */
+/* line 97, ../sass/styles.sass */
 .jump-navigation .page-link.active {
   background-color: #d9230f;
 }
-/* line 97, ../sass/styles.sass */
+/* line 100, ../sass/styles.sass */
 .jump-navigation .page-link.active a {
   color: #fff;
 }
 
-/* line 100, ../sass/styles.sass */
+/* line 103, ../sass/styles.sass */
 .footnotes {
   font-size: 0.8em;
 }
 
-/* line 103, ../sass/styles.sass */
+/* line 106, ../sass/styles.sass */
 .right {
   text-align: right;
   display: block;
 }
 
 @media (max-width: 767px) {
-  /* line 109, ../sass/styles.sass */
+  /* line 112, ../sass/styles.sass */
   body {
     font-size: 14.94px;
   }
 
-  /* line 111, ../sass/styles.sass */
+  /* line 114, ../sass/styles.sass */
   header {
     text-align: center;
     margin-bottom: 42px;
   }
 
-  /* line 114, ../sass/styles.sass */
+  /* line 117, ../sass/styles.sass */
   blockquote {
     font-size: 14.94px;
   }
 
-  /* line 116, ../sass/styles.sass */
+  /* line 119, ../sass/styles.sass */
   .logo-wrap {
     float: none;
     width: 90px;
     max-width: 33%;
     margin: 24px auto 0 auto;
   }
-  /* line 122, ../sass/styles.sass */
+  /* line 125, ../sass/styles.sass */
   .logo-wrap img {
     margin-top: 0;
   }
