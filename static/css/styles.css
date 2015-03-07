@@ -7325,28 +7325,33 @@ blockquote {
 }
 
 /* line 24, ../sass/styles.sass */
+a:focus {
+  outline: 0;
+}
+
+/* line 27, ../sass/styles.sass */
 .logo-wrap img {
   margin-top: 15px;
   width: 100%;
   height: auto;
 }
 
-/* line 30, ../sass/styles.sass */
+/* line 33, ../sass/styles.sass */
 .title-wrap h1 {
   margin: 0;
   font-family: "Oswald", sans-serif;
 }
-/* line 34, ../sass/styles.sass */
+/* line 37, ../sass/styles.sass */
 .title-wrap .description {
   font-size: 1.2em;
 }
 
-/* line 37, ../sass/styles.sass */
+/* line 40, ../sass/styles.sass */
 .center {
   text-align: center;
 }
 
-/* line 40, ../sass/styles.sass */
+/* line 43, ../sass/styles.sass */
 footer {
   padding-top: 40px;
   padding-bottom: 30px;
@@ -7355,7 +7360,7 @@ footer {
   font-size: 0.8em;
 }
 
-/* line 47, ../sass/styles.sass */
+/* line 50, ../sass/styles.sass */
 .date {
   color: #777777;
   text-transform: uppercase;
@@ -7363,56 +7368,56 @@ footer {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/* line 53, ../sass/styles.sass */
+/* line 56, ../sass/styles.sass */
 .post + .post {
   margin-top: 80px;
 }
 
-/* line 56, ../sass/styles.sass */
+/* line 59, ../sass/styles.sass */
 .post img {
   max-width: 100%;
 }
 
-/* line 60, ../sass/styles.sass */
+/* line 63, ../sass/styles.sass */
 figure.center {
   text-align: center;
 }
 
-/* line 62, ../sass/styles.sass */
+/* line 65, ../sass/styles.sass */
 img.small {
   max-width: 33%;
 }
 
-/* line 65, ../sass/styles.sass */
+/* line 68, ../sass/styles.sass */
 .popover {
   width: 250px;
   font-size: 1em;
 }
 
-/* line 69, ../sass/styles.sass */
+/* line 72, ../sass/styles.sass */
 figcaption h4 {
   font-size: 0.85em;
   font-style: italic;
   color: #555555;
 }
 
-/* line 74, ../sass/styles.sass */
+/* line 77, ../sass/styles.sass */
 .prev-next {
   margin-top: 80px;
 }
 
-/* line 77, ../sass/styles.sass */
+/* line 80, ../sass/styles.sass */
 .pagination {
   display: block;
   margin-top: 80px;
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/* line 82, ../sass/styles.sass */
+/* line 85, ../sass/styles.sass */
 .jump-navigation {
   padding-top: 5px;
 }
-/* line 85, ../sass/styles.sass */
+/* line 88, ../sass/styles.sass */
 .jump-navigation .page-link {
   display: inline-block;
   border-radius: 50%;
@@ -7422,55 +7427,61 @@ figcaption h4 {
   line-height: 28px;
   background-color: #eeeeee;
 }
-/* line 94, ../sass/styles.sass */
+/* line 97, ../sass/styles.sass */
 .jump-navigation .page-link a {
   text-decoration: none;
 }
-/* line 97, ../sass/styles.sass */
+/* line 100, ../sass/styles.sass */
 .jump-navigation .page-link.active {
   background-color: #d9230f;
 }
-/* line 100, ../sass/styles.sass */
+/* line 103, ../sass/styles.sass */
 .jump-navigation .page-link.active a {
   color: #fff;
 }
 
-/* line 103, ../sass/styles.sass */
+/* line 106, ../sass/styles.sass */
 .footnotes {
   font-size: 0.8em;
 }
 
-/* line 106, ../sass/styles.sass */
+/* line 110, ../sass/styles.sass */
+.footnote-ref .badge {
+  font-size: 0.8em;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* line 114, ../sass/styles.sass */
 .right {
   text-align: right;
   display: block;
 }
 
 @media (max-width: 767px) {
-  /* line 112, ../sass/styles.sass */
+  /* line 120, ../sass/styles.sass */
   body {
     font-size: 14.94px;
   }
 
-  /* line 114, ../sass/styles.sass */
+  /* line 122, ../sass/styles.sass */
   header {
     text-align: center;
     margin-bottom: 42px;
   }
 
-  /* line 117, ../sass/styles.sass */
+  /* line 125, ../sass/styles.sass */
   blockquote {
     font-size: 14.94px;
   }
 
-  /* line 119, ../sass/styles.sass */
+  /* line 127, ../sass/styles.sass */
   .logo-wrap {
     float: none;
     width: 90px;
     max-width: 33%;
     margin: 24px auto 0 auto;
   }
-  /* line 125, ../sass/styles.sass */
+  /* line 133, ../sass/styles.sass */
   .logo-wrap img {
     margin-top: 0;
   }

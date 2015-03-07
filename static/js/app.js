@@ -36,27 +36,34 @@ $(document).ready(function () {
 
 			var fnid = null,
 				fntext = '',
+				fnreftext = '',
 				$fnel = null;
 
 			fnrefid = this.id;
 			fnrefid = fnrefid.replace(/:/g, "\\:");
 			fnid = fnrefid.replace("fnref","fn");
 
-			console.log('fnid: '+fnid);
+			//fnreftext = $('#' + fnrefid + ' a').html();
+			//fnreftext = '<span class="badge">'+fnreftext+'</span>';
+			//$('#' + fnrefid + ' a').html(fnreftext);
 			
-			fntext = $('#' + fnid).text();
-			console.log('fntext: '+fntext);
+			fntext = $('#' + fnid).html();
+			fntext = fntext.replace(" [return]", "");
+			fntext = fntext.replace(/<a class="footnote-return" href=".*"><sup>\[return\]<\/sup><\/a>/g, "");
 
 			$('#' + fnrefid + ' a').attr('data-toggle', 'popover');
 			$('#' + fnrefid + ' a').attr('data-content', fntext);
+			$('#' + fnrefid + ' a').attr('tabindex', '0');
 	});
 
 	$('[data-toggle="tooltip"]').tooltip();
 	$('[data-toggle="popover"]').popover({
-		trigger: "click",
-		placement: "top"
+		trigger: 'focus',
+		placement: 'top',
+		html: true
 	});
-	$('a[data-toggle="popover"]').click(false);
+
+	$('[data-toggle="popover"]').click(false);
 });
 
 //<a tabindex="0" href="#" data-toggle="popover" data-content="Vestibulum id ligula porta felis euismod semper. Donec ullamcorper nulla non metus auctor fringilla.">1</a>
