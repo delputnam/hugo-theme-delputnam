@@ -43,9 +43,10 @@ $(document).ready(function () {
 			fnrefid = fnrefid.replace(/:/g, "\\:");
 			fnid = fnrefid.replace("fnref","fn");
 
-			//fnreftext = $('#' + fnrefid + ' a').html();
-			//fnreftext = '<span class="badge">'+fnreftext+'</span>';
-			//$('#' + fnrefid + ' a').html(fnreftext);
+			fnreftext = $('#' + fnrefid + ' a').html();
+			fnreftext = '<span class="badge">'+fnreftext+'</span>';
+			$('#' + fnrefid + ' a').html(fnreftext);
+			console.log( fnreftext );
 			
 			fntext = $('#' + fnid).html();
 			fntext = fntext.replace(" [return]", "");
