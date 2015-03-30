@@ -1,16 +1,16 @@
                     {{ $paginator := $.Paginator }}
                     {{ if gt $paginator.TotalPages 1 }}
                     <div class="pagination group">
-                        <a class="btn btn-sm btn-default{{ if not $paginator.HasPrev }} disabled{{ end }} prev pull-left" href="{{ if $paginator.HasPrev }}{{ .Site.BaseUrl }}{{ $paginator.Prev.Url }}{{ end }}">
+                        <a class="btn btn-sm btn-default{{ if not $paginator.HasPrev }} disabled{{ end }} prev pull-left" href="{{ if $paginator.HasPrev }}{{ .Site.BaseURL }}{{ $paginator.Prev.URL }}{{ end }}">
                             <i class="fa fa-arrow-left"></i><span class="hidden-xs"> Newer Posts</span>
                         </a>
 
-                        <a class="btn btn-sm btn-default{{ if not $paginator.HasNext }} disabled{{ end }} next pull-right" href="{{ if $paginator.HasNext }}{{ .Site.BaseUrl }}{{ $paginator.Next.Url }}{{ end }}"><span class="hidden-xs">Older Posts </span><i class="fa fa-arrow-right"></i>
+                        <a class="btn btn-sm btn-default{{ if not $paginator.HasNext }} disabled{{ end }} next pull-right" href="{{ if $paginator.HasNext }}{{ .Site.BaseURL }}{{ $paginator.Next.URL }}{{ end }}"><span class="hidden-xs">Older Posts </span><i class="fa fa-arrow-right"></i>
                         </a>
 
                         <div class="jump-navigation center">
                             {{ range $paginator.Pagers }}
-                            <span class="page-link{{ if eq . $paginator }} active{{ end }}"><a href="{{ .Url }}">{{ .PageNumber }}</a></span>
+                            <span class="page-link{{ if eq . $paginator }} active{{ end }}"><a href="{{ .URL }}">{{ .PageNumber }}</a></span>
                             {{ end }}
                         </div>
                     </div>
