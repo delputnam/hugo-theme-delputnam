@@ -4,7 +4,40 @@
                         </div>
                         <div class="text">
                             <h2><a class="permalink" href="{{ .Permalink }}"><span itemprop="name">{{ .Title }}</span></a></h2>
-                           <div itemprop="articleBody">{{ .Content }}</div>
+                            {{ with .Description }}
+                            <h4><span itemprop="description">{{ . }}</span></h4>
+	                        {{ end }}
+	                        {{ if eq .Type "podcast" }}
+	                        <audio controls
+								class="audio_controls {{ .Params.class }}"
+								{{ with .Params.id }}id="{{ . }}"{{ end }}
+								{{ with .Params.preload }}preload="{{ . }}"{{ else }}preload="metadata"{{ end }}
+								
+								style="{{ with .Params.style }}{{ . | safeCss }}; {{ end }}
+									{{ with .Params.audiowidth }}width:{{ . }}; {{ end }}
+									{{ with .Params.audioheight }}height:{{ . }};{{ end }}"
+								{{ with .Params.title }}data-info-title="{{ . }}"{{ end }}
+								{{ with .Params.attr }}data-info-attr="{{ . }}"{{ end }}
+								{{ with .Params.attr_link }}data-info-attr-link="{{ . }}"{{ end }}
+								{{ with .Params.year }}data-info-year="{{ . }}"{{ end }}
+								{{ with .Params.artist }}data-info-artist="{{ . }}"{{ end }}
+								{{ with .Params.album_title }}data-info-album-title="{{ . }}"{{ end }}
+								{{ with .Params.album_art }}data-info-album-art="{{ . }}"{{ end }}
+								{{ with .Params.label }}data-info-label="{{ . }}"{{ end }}
+							>
+								{{ if .Params.audiosrc }}
+								<source {{ with .Params.audiosrc }}src="{{ . }}"{{ end }}
+									{{ with .Params.audiotype }}type="audio/{{ . }}"{{ end }}>
+								{{ else if .Params.backup_src }}
+									<source src="{{ .Params.backup_src }}"
+										{{ with .Params.backup_type }}type="audio/{{ . }}"{{ end }}
+										{{ with .Params.backup_codec }}codecs="{{ . }}"{{ end }}
+									>
+								{{ end }}
+								Your browser does not support the audio element
+							</audio>	                        
+	                        {{ end }}
+							<div itemprop="articleBody">{{ .Content }}</div>
                         </div>
                         {{ partial "tags.html" . }}
                     </article>
