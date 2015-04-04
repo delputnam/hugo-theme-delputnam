@@ -19,7 +19,7 @@
                         <div type="button" id="menu-button" class="btn btn-default pull-right" data-toggle="show-menu"><i class="fa fa-bars"></i></div>
                         <div class="row">
                             <div class="col-sm-2 col-md-offset-2 logo-wrap">
-                                <a href="{{ .Site.BaseURL }}"><img src="/media/images/logo_large.png"></a>
+                                <a href="{{ .Site.BaseURL }}"><img src="{{ if isset .Site.Params "logo" }}{{ .Site.Params.logo }}{{ else }}/media/images/logo_large.png{{ end }}"></a>
                             </div>
                             <div class="col-md-6 col-sm-8 title-wrap">
                                 <h1>
