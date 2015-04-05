@@ -8,9 +8,10 @@
                             <h4><span itemprop="description">{{ . }}</span></h4>
 	                        {{ end }}
 	                        {{ if eq .Type "podcast" }}
-							{{ with .Params.audiosrc }}<p><a href="{{ . }}">Download this episode as an mp3.</a></p>{{ end }}
+	                        {{ with .Site.Params.podcastfeed }}<p><a href="{{. | safeURL}}"><i class="fa fa-rss"></i> Subscribe to the podcast.</a></p>{{ end }}
+							{{ with .Params.audiosrc }}<p><a href="{{ . }}"><i class="fa fa-cloud-download"></i> Download this episode as an mp3.</a></p>{{ end }}
 							<p>
-								Stream this episode now:</br>
+								<i class="fa fa-headphones"></i> Stream this episode now.</br>
 		                        <audio controls
 									class="audio_controls {{ .Params.class }}"
 									{{ with .Params.id }}id="{{ . }}"{{ end }}
@@ -40,7 +41,7 @@
 									Your browser does not support the audio element
 								</audio>
 							</p>
-	                        {{ with .Site.Params.podcastfeed }}<p><a href="{{. | safeURL}}">Subscribe to the podcast</a></p>{{ end }}
+							<hr>
 	                        {{ end }}
 							<div itemprop="articleBody">{{ .Content }}</div>
                         </div>
