@@ -41,11 +41,22 @@ a:focus
 	text-align: center
 
 footer
+	margin-top: 40px
 	padding-top: 40px
 	padding-bottom: 30px
-	margin-top: 80px
 	text-align: center
 	font-size: 0.8em
+	font-family: $font-family-sans-serif
+	background-color: $gray
+	color: $gray-lighter
+	
+	a
+		text-decoration: underline
+		color: $gray-lighter
+		
+		&:hover
+			color: darken($gray-lighter, 20%)
+
 
 .date
 	color: $gray-light
@@ -129,7 +140,7 @@ figcaption h4
 .right
 	text-align: right
 	display: block
-
+	
 @media (max-width:767px)
 	$font-size-mobile: $font-size-base * 0.83
 	body
