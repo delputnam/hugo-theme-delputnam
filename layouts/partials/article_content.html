@@ -3,13 +3,14 @@
                             {{ .Date.Format "Monday, 2 January 2006" }}
                         </div>
                         <div class="text">
-                            <h2><a class="permalink" href="{{ .Permalink }}"><span itemprop="name">{{ .Title }}</span></a></h2>
+                            <h2><a class="permalink" href="{{ .Permalink }}"><span itemprop="name">{{ with .Params.episodenum }}{{.}} - {{end}}{{ .Title }}</span></a></h2>
                             {{ with .Description }}
                             <h4><span itemprop="description">{{ . }}</span></h4>
 	                        {{ end }}
 	                        {{ if eq .Type "podcast" }}
-							{{ with .Params.audiosrc }}<p><a href="{{ . }}">Download the mp3.</a></p>{{ end }}
+							{{ with .Params.audiosrc }}<p><a href="{{ . }}">Download this episode as an mp3.</a></p>{{ end }}
 							<p>
+								Stream this episode now:</br>
 		                        <audio controls
 									class="audio_controls {{ .Params.class }}"
 									{{ with .Params.id }}id="{{ . }}"{{ end }}
@@ -39,7 +40,7 @@
 									Your browser does not support the audio element
 								</audio>
 							</p>
-	                        {{ with .Site.Params.podcastfeed }}<p><a href="{{.}}">Subscribe to the podcast</a></p>{{ end }}
+	                        {{ with .Site.Params.podcastfeed }}<p><a href="{{. | safeURL}}">Subscribe to the podcast</a></p>{{ end }}
 	                        {{ end }}
 							<div itemprop="articleBody">{{ .Content }}</div>
                         </div>

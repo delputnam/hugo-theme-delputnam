@@ -6,7 +6,7 @@
                         <div class="list-group">
                             {{ $currentNode := . }}
                             {{ range .Site.Menus.main }}
-                            <a href="{{.URL}}" class="list-group-item{{if $currentNode.IsMenuCurrent "main" . }} active{{end}}">
+                            <a href="{{.URL | safeURL}}" class="list-group-item{{if $currentNode.IsMenuCurrent "main" . }} active{{end}}">
                                 {{ .Pre }}
                                 <span>{{ .Name }}</span>
                                 <i class="fa fa-angle-right"></i>
