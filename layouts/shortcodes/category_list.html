@@ -1,0 +1,6 @@
+{{ $category := index .Params 0 }}
+{{ $paginator := .Paginate (first 20 (where .Data.Pages "Params.categories" $category)) }}
+{{ range $paginator.Pages }}
+    {{ partial "article_content.html" . }}
+{{ end }}                    
+{{ partial "paginator.html" . }}
