@@ -25,7 +25,7 @@ a:focus
 	outline: 0
 
 .logo-wrap img
-	margin-top: 15px
+	margin-top: 12px
 	width: 100%
 	height: auto
 
@@ -41,11 +41,22 @@ a:focus
 	text-align: center
 
 footer
+	margin-top: 40px
 	padding-top: 40px
 	padding-bottom: 30px
-	margin-top: 80px
 	text-align: center
 	font-size: 0.8em
+	font-family: $font-family-sans-serif
+	background-color: $gray
+	color: $gray-lighter
+	
+	a
+		text-decoration: underline
+		color: $gray-lighter
+		
+		&:hover
+			color: darken($gray-lighter, 20%)
+
 
 .date
 	color: $gray-light
@@ -64,14 +75,19 @@ footer
 	border-color: $gray-lighter
 
 figure
+	max-width: 80%
 	&.center
+		margin: 0 auto
 		text-align: center
+	&.full
+		max-width: 100%
+		img
+			max-width: 100%
 	&.medium
-		img
-			max-width: 50%
+		max-width: 50%
 	&.small
-		img
-			max-width: 33%
+		max-width: 33%
+			
 img.small
 	max-width: 33%
 
@@ -124,7 +140,7 @@ figcaption h4
 .right
 	text-align: right
 	display: block
-
+	
 @media (max-width:767px)
 	$font-size-mobile: $font-size-base * 0.83
 	body
@@ -134,6 +150,12 @@ figcaption h4
 		margin-bottom: 42px
 	blockquote
 		font-size: $font-size-mobile
+	figure
+		max-width: 100%
+		&.medium
+			max-width: 80%
+		&.small
+			max-width: 50%
 	.logo-wrap
 		float: none
 		width: 90px
