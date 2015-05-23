@@ -29,7 +29,8 @@
 	$post_data = json_decode($_POST['payload'], true);
 	
 	//generate the post file name
-	$post_data['filename'] = urlencode(str_replace(' ', '_', strtolower($post_data['name'])));
+	preg_match("/title:\\s*(.*)/u", $post_data['content'], $post_name);
+	$post_data['filename'] = urlencode(str_replace(' ', '-', strtolower($post_name[1])));
 	$post_filename = $posts_dir.$post_data['filename'].'.md';
 	
 	//generate the post URL
