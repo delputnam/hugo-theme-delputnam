@@ -110,7 +110,7 @@
 	// rebuild the site
 	exec('echo "----------" >> ~/tmp/hugo.$(date +"%Y%m%d").log');
 	exec('echo $(date +"%Y-%m-%d %H:%M") >> ~/tmp/hugo.$(date +"%Y%m%d").log');
-	exec('hugo -s '.$base_dir.' >> ~/tmp/hugo.$(date +"%Y%m%d").log');
+	exec('~/go/bin/hugo -s '.$base_dir.' >> ~/tmp/hugo.$(date +"%Y%m%d").log');
 
 	// let the calling process know where this is posted
 	header('Location: '.$post_url);
