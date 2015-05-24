@@ -8,6 +8,10 @@
 	$images_dir = $static_dir.$images_subdir;
 	$posts_dir = $base_dir.'content/post/'.date('Y/m/');
 	
+	// require auth
+	require($base_dir.'config.php');
+	if (!auth()) die();
+	
 	// set up URLs
 	$protocol = stripos($_SERVER['SERVER_PROTOCOL'],'https') === true ? 'https://' : 'http://';
 	$domain = $_SERVER['SERVER_NAME'];
