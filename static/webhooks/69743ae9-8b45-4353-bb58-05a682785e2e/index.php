@@ -1,23 +1,47 @@
 <?php
-	if (empty($_POST)) die();
+	// log the request
+	exec('echo "----------" >> ~/tmp/hugo.$(date +"%Y%m%d").log');
+	exec('echo $(date +"%Y-%m-%d %H:%M") >> ~/tmp/hugo.$(date +"%Y%m%d").log');
+	exec('echo "post request" >> ~/tmp/hugo.$(date +"%Y%m%d").log');
+	
+	// anything to do?
+	if (empty($_POST['payload'])) die();
+			
+	//get the post data and decode it
+	$post_data = json_decode($_POST['payload'], true);
 		
+	//get the post date
+	preg_match("/date:\\s*(.*)/u", $post_data['content'], $post_date);
+	$post_data['time'] = strtotime($post_date[1]);
+	
 	// set up directories
 	$base_dir = dirname(dirname(dirname(dirname(__FILE__)))).'/';
 	$static_dir = $base_dir.'static/';
-	$images_subdir = 'media/images/'.date('Y/m/');
+	$images_subdir = 'media/images/'.date('Y/m/',$post_data['time']);
 	$images_dir = $static_dir.$images_subdir;
-	$posts_dir = $base_dir.'content/post/'.date('Y/m/');
-	
-	// require auth
-	require($base_dir.'config.php');
-	if (!auth()) die();
-	
+	$posts_dir = $base_dir.'content/post/'.date('Y/m/',$post_data['time']);
+
+	//generate the post file name
+	preg_match("/title:\\s*(.*)/u", $post_data['content'], $post_name);
+	$post_data['filename'] = urlencode(str_replace(' ', '-', strtolower($post_name[1])));
+	$post_filename = $posts_dir.$post_data['filename'].'.md';
+		
 	// set up URLs
 	$protocol = stripos($_SERVER['SERVER_PROTOCOL'],'https') === true ? 'https://' : 'http://';
 	$domain = $_SERVER['SERVER_NAME'];
 	$url_path = $_SERVER['PHP_SELF'];
 	$images_base_url = $protocol.$domain.'/'.$images_subdir;
-	$post_base_url = $protocol.$domain.date('/Y/m/d/');
+	$post_base_url = $protocol.$domain.date('/Y/m/d/',$post_data['time']);
+	$post_url = $post_base_url.$post_data['filename'];
+	
+	// require auth
+	require($base_dir.'config.php');
+	if (!auth()) die();
+
+	//log request details
+	exec('echo "post name: '.$post_name[1].'" >> ~/tmp/hugo.$(date +"%Y%m%d").log');
+	exec('echo "post url: '.$post_url.'" >> ~/tmp/hugo.$(date +"%Y%m%d").log');
+	exec('echo "post dir: '.$posts_dir.'" >> ~/tmp/hugo.$(date +"%Y%m%d").log');
 	
 	// create images dir if it doesn't already exist
 	if (!file_exists($images_dir)) {
@@ -28,20 +52,13 @@
 	if (!file_exists($posts_dir)) {
 		mkdir($posts_dir,0755,true);
 	}
-		
-	//get the post data and decode it
-	$post_data = json_decode($_POST['payload'], true);
-	
-	//generate the post file name
-	preg_match("/title:\\s*(.*)/u", $post_data['content'], $post_name);
-	$post_data['filename'] = urlencode(str_replace(' ', '-', strtolower($post_name[1])));
-	$post_filename = $posts_dir.$post_data['filename'].'.md';
-	
-	//generate the post URL
-	$post_url = $post_base_url.$post_data['filename'];
-	
+			
 	//process any images referenced in the post
 	$num_images = preg_match_all("/!\\[(.+)\\]\\((.+)[\\)|\\s]/uU", $post_data['content'], $post_images);
+	
+	if ($num_images == 0) {
+		exec('echo "no images found in this post" >> ~/tmp/hugo.$(date +"%Y%m%d").log');
+	}
 																		
 	if ($num_images > 0) {
 		$post_image_names = $post_images[1];
@@ -105,6 +122,11 @@
 			
 			// replace the original URL with the url of the new jpg
 			$post_data['content'] = str_replace($image_url, $images_base_url.$image_base_filename.'.jpg', $post_data['content']);
+			
+			//log image processing
+			exec('echo "original image url: '.$image_url.'" >> ~/tmp/hugo.$(date +"%Y%m%d").log');
+			exec('echo "image file created: '.$image_base_path.'.jpg" >> ~/tmp/hugo.$(date +"%Y%m%d").log');
+			exec('echo "new image url: '.$images_base_url.$image_base_filename.'" >> ~/tmp/hugo.$(date +"%Y%m%d").log');
 		}
 	}
 	
@@ -117,7 +139,7 @@
 	exec('~/go/bin/hugo -s '.$base_dir.' >> ~/tmp/hugo.$(date +"%Y%m%d").log');
 
 	// let the calling process know where this is posted
-	header('Location: '.$post_url);
+	header('Location: '.$post_url.'/');
 
 	// we're done!
 	die();
