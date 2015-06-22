@@ -18,10 +18,10 @@
                     <div class="col-md-8 col-md-offset-2">
                         <div type="button" id="menu-button" class="btn btn-default pull-right" data-toggle="show-menu"><i class="fa fa-bars"></i></div>
                         <div class="row">
-                            <div class="col-sm-2 col-md-offset-2 logo-wrap">
+                            <div class="col-sm-2 logo-wrap">
                                 <a href="{{ .Site.BaseURL }}"><img src="{{ if isset .Site.Params "logo" }}{{ .Site.Params.logo }}{{ else }}/media/images/logo_large.png{{ end }}"></a>
                             </div>
-                            <div class="col-md-6 col-sm-8 title-wrap">
+                            <div class="col-sm-10 title-wrap">
                                 <h1>
                                     <a href="/">{{ .Site.Title }}</a>
                                 </h1>
@@ -29,7 +29,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-md-8 col-md-offset-2">
+                            <div class="col-sm-12">
                                 <p class="description">{{ .Site.Params.description }}</p>
                             </div>
                         </div>
