@@ -1,4 +1,6 @@
+{{ if .Site.DisqusShortname }}
                         <div class="comment-count">                        	
                         	<ul class="list-inline"><li><i class="fa fa-comment text-info tag-icon"></i></li>
       						<li><a class="text-info small" href="{{ .Permalink }}#disqus_thread">comments</a></li></ul>                        	
 						</div>
+{{ end }}
