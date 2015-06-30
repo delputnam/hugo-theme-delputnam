@@ -1,8 +1,11 @@
-<figure class="{{ with .Get "size" }}{{.}}{{ end }} {{ with .Get "align" }}{{.}}{{ end }}">
+<figure itemscope itemtype="http://schema.org/ImageObject" class="{{ with .Get "size" }}{{.}}{{ end }} {{ with .Get "align" }}{{.}}{{ end }}">
 {{ with .Get "link"}}<a href="{{.}}">{{ end }}
-    <img {{ with .Get "class" }}class="{{.}}" {{ end }} src="{{ .Get "src" }}" {{ if or (.Get "alt") (.Get "caption") }}alt="{{ with .Get "alt"}}{{.}}{{else}}{{ .Get "caption" }}{{ end }}" {{ end }}{{ with .Get "width" }}width="{{.}}" {{ end }}/>
+    <img {{ with .Get "class" }}class="{{.}}" {{ end }} src="{{ .Get "src" }}" {{ if or (.Get "alt") (.Get "caption") }}alt="{{ with .Get "alt"}}{{.}}{{else}}{{ .Get "caption" }}{{ end }}" {{ end }}{{ with .Get "width" }}width="{{.}}" {{ end }} itemprop="contentUrl"/>
 {{ if .Get "link"}}</a>{{ end }}
 {{ with .Get "caption"}}
-	<figcaption><h4>{{.}}</h4></figcaption>
+	<figcaption><h4 class="text-left" itemprop="caption">{{.|markdownify}}</h4></figcaption>
+{{ end }}
+{{ with .Get "attribution"}}
+	<figcaption><h4 class="text-right" itemprop="creator">{{.|markdownify}}</h4></figcaption>
 {{ end }}
 </figure>
