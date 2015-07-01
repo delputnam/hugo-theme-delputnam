@@ -42,10 +42,6 @@ $(document).ready(function () {
 			fnrefid = this.id;
 			fnrefid = fnrefid.replace(/:/g, "\\:");
 			fnid = fnrefid.replace("fnref","fn");
-
-			//fnreftext = $('#' + fnrefid + ' a').html();
-			//fnreftext = '<span class="badge">'+fnreftext+'</span>';
-			//$('#' + fnrefid + ' a').html(fnreftext);
 			
 			fntext = $('#' + fnid).html();
 			fntext = fntext.replace(" [return]", "");
@@ -65,6 +61,4 @@ $(document).ready(function () {
 
 	$('[data-toggle="popover"]').click(false);
 });
-
-//<a tabindex="0" href="#" data-toggle="popover" data-content="Vestibulum id ligula porta felis euismod semper. Donec ullamcorper nulla non metus auctor fringilla.">1</a>
 
