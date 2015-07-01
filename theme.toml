@@ -1,14 +1,14 @@
-name = "delputnam"
+name = "possiblygeek"
 license = "MIT"
-licenselink = "https://github.com/.../.../LICENSE.md"
+licenselink = "https://github.com/delputnam/hugo-theme-delputnam/LICENSE.md"
 description = ""
-homepage = "http://siteforthistheme.com/"
+homepage = "https://github.com/delputnam/hugo-theme-delputnam"
 tags = ["", ""]
 features = ["", ""]
 
 [author]
   name = "Del Putnam"
-  homepage = "delputnam.me"
+  homepage = ""
 
 # If porting an existing theme
 [original]
