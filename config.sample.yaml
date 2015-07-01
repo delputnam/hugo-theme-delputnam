@@ -1,0 +1,53 @@
+baseurl: "http://example.com/"
+languageCode: "en-us"
+copyright: "This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License."
+title: "Site Title"
+theme: "possiblygeek"
+paginate: 25
+paginatePath: "page"
+MetaDataFormat: "yaml"
+CanonifyURLs: "true"
+disqusShortname: "my_disqus_shortname"
+
+author:
+    name: "Del Putnam"
+    email: "del@putnams.net"
+    twitter: "delputnam"
+    facebook: "delputnam"
+
+social:
+    facebook: "delputnam"
+    facebook_admin: "delputnam"
+    twitter: "delputnam"
+
+params:
+    description: "A brief description of this site."
+    author: "Del Putnam"
+    google_analytics_id: "UA-45369150-X"
+    logo: "/media/images/logo_large.png"
+    podcastfeed: "feed://feeds.feedburner.com/podcastfeed/"
+    mathjax: "false"
+
+taxonomies:
+    tag: "tags"
+    category: "categories"
+    series: "series"
+
+permalinks:
+    post: "/post/:year/:month/:day/:title/"
+    photo: "/photo/:year/:month/:day/:title/"
+    podcast: "/podcast/:month/:day/:title/"
+
+menu:
+    main:
+        - name: "Home"
+          pre: "<i class='fa fa-home'></i>"
+          weight: 1
+          identifier: "home"
+          URL: "/"
+        - name: "Subscribe"
+          pre: "<i class='fa fa-rss'></i>"
+          weight: 2
+          identifier: "subscribe"
+          URL: "feed://feeds.feedburner.com/postfeed/posts"
+
