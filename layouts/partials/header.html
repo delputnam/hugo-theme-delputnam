@@ -12,6 +12,20 @@
                                 <i class="fa fa-angle-right"></i>
                             </a>
                             {{ end }}
+                            {{ with .Site.Social.twitter }}
+                            <a href="https://twitter.com/{{ . }}" class="list-group-item">
+	                            <i class='fa fa-twitter-square'></i>
+                                <span>Twitter</span>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                            {{ end }}
+                            {{ with .Site.Social.facebook }}
+                            <a href="https://facebook.com/{{ . }}" class="list-group-item">
+	                            <i class='fa fa-facebook-square'></i>
+                                <span>Facebook</span>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                            {{ end }}
                         </div>
                     </div>
                     
@@ -19,7 +33,7 @@
                         <div type="button" id="menu-button" class="btn btn-default pull-right" data-toggle="show-menu"><i class="fa fa-bars"></i></div>
                         <div class="row">
                             <div class="col-sm-2 logo-wrap">
-                                <a href="{{ .Site.BaseURL }}"><img src="{{ if isset .Site.Params "logo" }}{{ .Site.Params.logo }}{{ else }}/media/images/logo_large.png{{ end }}"></a>
+                                <a href="{{ .Site.BaseURL }}"><img src="{{ if isset .Site.Params "logo" }}{{ .Site.Params.logo }}{{ else }}/media/images/common/logo_large.png{{ end }}"></a>
                             </div>
                             <div class="col-sm-10 title-wrap">
                                 <h1>
