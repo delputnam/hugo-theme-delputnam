@@ -5,9 +5,10 @@
         <link href="{{ .RSSlink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="apple-touch-icon" href="/media/logo_128.png">
-        <link rel="shortcut icon" href="/media/logo_128.png">
+        <link rel="apple-touch-icon" href="/media/images/common/logo_128.png">
+        <link rel="shortcut icon" href="/media/images/common/logo_128.png">
         <meta name="description" content="{{ .Site.Params.description }}"/>
+        {{ .Hugo.Generator }}
 
         <!-- opengraph info -->
         {{ template "_internal/opengraph.html" . }}
