@@ -1,0 +1,7 @@
+                        {{ with .Params.series }}
+                        <div class="series">
+                        	<ul class="list-inline"><li><i class="fa fa-ellipsis-v text-info series-icon"></i></li>{{ range . }}
+      						<li><a class="text-info small" href="series/{{ . | lower | urlize }}">{{ . }}</a></li>
+							{{ end }}</ul>
+						</div>
+						{{ end }}
