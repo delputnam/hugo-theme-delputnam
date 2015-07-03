@@ -24,8 +24,9 @@ params:
     description: "A brief description of this site."
     author: "Del Putnam"
     google_analytics_id: "UA-45369150-X"
-    logo: "/media/images/logo_large.png"
+    logo: "/media/images/common/logo_large.png"
     podcastfeed: "feed://feeds.feedburner.com/podcastfeed/"
+    instaclick: "true"
     mathjax: "false"
 
 taxonomies:
@@ -34,9 +35,10 @@ taxonomies:
     series: "series"
 
 permalinks:
-    post: "/post/:year/:month/:day/:title/"
-    photo: "/photo/:year/:month/:day/:title/"
-    podcast: "/podcast/:month/:day/:title/"
+    links: "/link/:year/:month/:day/:title/"
+    posts: "/post/:year/:month/:day/:title/"
+    photos: "/photo/:year/:month/:day/:title/"
+    podcasts: "/podcast/:month/:day/:title/"
 
 menu:
     main:
