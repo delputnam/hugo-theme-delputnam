@@ -45,8 +45,12 @@
 	                        {{ end }}
 							<div itemprop="articleBody">{{ .Content }}</div>
                         </div>
-                        {{ partial "tags.html" . }}
-                        {{ partial "categories.html" . }}
-                        {{ partial "series.html" . }}
-                        {{ partial "disqus_comment_count.html" . }}
+                        <div class="post-footer">
+	                        {{ partial "tags.html" . }}
+	                        {{ partial "categories.html" . }}
+	                        {{ partial "series.html" . }}
+	                        {{ if eq ($.Scratch.Get "IsListPage") true }}
+	                            {{ partial "disqus_comment_count.html" . }}
+                            {{ end }}
+                        </div>
                     </article>
