@@ -1,3 +1,4 @@
+{{ $.Scratch.Set "IsListPage" true }}
 {{ partial "page_begin.html" . }}
     {{ $paginator := .Paginate (where .Data.Pages "Type" "!=" "page") 20 }}
     {{ range $index, $element := $paginator.Pages }}

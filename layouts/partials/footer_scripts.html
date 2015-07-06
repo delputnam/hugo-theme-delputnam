@@ -1,5 +1,5 @@
-		<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+		<script src="//code.jquery.com/jquery-1.11.0.min.js" data-no-instant></script>
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" data-no-instant></script>
 		<script src="js/app.js"></script>
 		{{ if eq .Site.Params.mathjax "true" }}
 		<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -28,8 +28,9 @@
 			});
 		</script>
 		{{ end }}
-		{{ with .Site.DisqusShortname }}
-		<script type="text/javascript">
+		{{ if eq ($.Scratch.Get "IsListPage") true }}
+			{{ with .Site.DisqusShortname }}
+		<script type="text/javascript" data-no-instant>
 		    /* * * CONFIGURATION VARIABLES * * */
 		    var disqus_shortname = '{{ . }}';
 		    
@@ -41,6 +42,7 @@
 		        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
 		    }());
 		</script>
+			{{ end }}
 		{{ end }}
 		{{ if eq .Site.Params.instaclick "true" }}
 		<script src="js/instantclick.min.js" data-no-instant></script>
@@ -57,6 +59,8 @@
         {{ end }}	
 			InstantClick.on('change', function() {
 				ga('send', 'pageview', location.pathname + location.search);
+				window.DISQUSWIDGETS = undefined;
+				$.getScript("http://" + disqus_shortname + ".disqus.com/count.js");
 			});
 			InstantClick.init();
 		</script>
