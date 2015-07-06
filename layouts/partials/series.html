@@ -1,7 +1,39 @@
-                        {{ with .Params.series }}
-                        <div class="series">
-                        	<ul class="list-inline"><li><i class="fa fa-ellipsis-v text-info series-icon"></i></li>{{ range . }}
-      						<li><a class="text-info small" href="series/{{ . | lower | urlize }}">{{ . }}</a></li>
-							{{ end }}</ul>
-						</div>
-						{{ end }}
+					    {{ if .Params.series }}
+					        {{ $link := .Permalink }}
+						    {{ $name := index .Params.series 0 }}
+						    
+					        {{ $pathName := $name | lower | urlize }}
+					        {{ $series := index .Site.Taxonomies.series $pathName }}
+					        {{ $count := len $series }}
+					        					        
+					        <div class="series">
+					        {{ if eq $count 1 }}
+						        <ul class="list-inline">
+							        <li><i class="fa fa-ellipsis-v text-info series-icon"></i></li>
+							        <li><span class="text-info small">This is the first post in the <b>{{$name}}</b> series.</span></li>
+						        </ul>
+					        {{ else }}
+						        <ul class="list-inline">
+							        <li><i class="fa fa-ellipsis-v text-info series-icon"></i></li>
+							        <li><span class="text-info small">This is a post in the <b>{{$name}}</b> series.</span></li>
+						        </ul>
+						    	<p class="text-info small">Other posts in this series:</p>
+						        <ul class="series">
+						        {{ range $series.Pages }}
+						            <li>{{.Date.Format "Jan 02, 2006"}} - 
+						            {{ if eq .Permalink $link }}
+						                <span class="text-info small">{{.LinkTitle}}</span>
+						            {{else}}
+						                <a class="text-info small" href="{{.Permalink}}">{{.LinkTitle}}</a>
+						            {{end}}
+						            </li>
+						        {{end}}
+						        </ul>
+					        {{ end }}
+						        <ul class="list-inline">
+							        <li><a href="feed://series/{{ $pathName }}/index.xml"><i class="fa fa-rss text-info rss-icon"></i></a></li>
+							        <li><a class="text-info small" href="series/{{ $pathName }}/index.xml">Subscribe to this series.</a></li>						    
+						        </ul>
+					        </div>
+						{{end}}
+						
