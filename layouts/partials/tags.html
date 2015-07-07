@@ -1,7 +1,11 @@
                         {{ with .Params.tags }}
                         <div class="tags">
-                        	<ul class="list-inline"><li><i class="fa fa-tags text-info tag-icon"></i></li>{{ range . }}
-      						<li><a class="text-info small" href="tags/{{ . | lower | urlize }}">{{ . }}</a></li>
-							{{ end }}</ul>
+                        	<ul class="list-inline">
+	                        	<li><i class="fa fa-tags text-info tag-icon"></i></li>
+	                        	{{ $tags := . }}
+								{{ $links := apply $tags "partial" "tag.html" "." }}
+								{{ $clean := apply $links "chomp" "." }}
+								{{ delimit $clean "<span class=\"text-info\">/</span>" }}
+							</ul>
 						</div>
 						{{ end }}

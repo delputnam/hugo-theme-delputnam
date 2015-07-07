@@ -1,7 +1,11 @@
                         {{ with .Params.categories }}
                         <div class="categories">
-                        	<ul class="list-inline"><li><i class="fa fa-folder-open text-info category-icon"></i></li>{{ range . }}
-      						<li><a class="text-info small" href="categories/{{ . | lower | urlize }}">{{ . }}</a></li>
-							{{ end }}</ul>
+                        	<ul class="list-inline">
+	                        	<li><i class="fa fa-folder-open text-info category-icon"></i></li>
+	                        	{{ $categories := . }}
+								{{ $links := apply $categories "partial" "category.html" "." }}
+								{{ $clean := apply $links "chomp" "." }}
+								{{ delimit $clean "<span class=\"text-info\">/</span>" }}
+							</ul>
 						</div>
 						{{ end }}
