@@ -1,4 +1,8 @@
                     <article itemscope itemtype="http://schema.org/Article" class="post">
+
+				        <!-- opengraph info -->
+				        {{ template "_internal/opengraph.html" . }}
+
                         <div class="date">
                             {{ .Date.Format "Monday, 2 January 2006" }}
                         </div>
@@ -52,5 +56,6 @@
 	                        {{ if eq ($.Scratch.Get "IsListPage") true }}
 	                            {{ partial "disqus_comment_count.html" . }}
                             {{ end }}
+	                        {{ partial "social_sharing.html" . }}
                         </div>
                     </article>
