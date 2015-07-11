@@ -1,0 +1,11 @@
+									{{ $hashtags := ($.Scratch.Get "hashtags") }}
+									<a class="tumblr-color js-social-share" 
+										href="http://tumblr.com/widgets/share/tool
+											?canonicalUrl={{.Permalink}}
+											&tags={{$hashtags}}
+											&title={{.Title}}
+											&content={{.Content}}
+											&show-via={{.Site.Title}}"
+										target="_blank">
+										<i class="fa fa-tumblr"></i><span class="small"> Tumblr</span>
+									</a>

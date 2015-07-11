@@ -1,0 +1,10 @@
+									{{ $hashtags := ($.Scratch.Get "hashtags") }}
+									<a class="twitter-color js-social-share" 
+										href="https://twitter.com/intent/tweet/
+											?text={{.Title}}
+											&url={{.Permalink}}
+											&via={{.Site.Social.twitter}}
+											&hastags={{$hashtags}}"
+										target="_blank">
+										<i class="fa fa-twitter"></i><span class="small"> Twitter</span>
+									</a>
