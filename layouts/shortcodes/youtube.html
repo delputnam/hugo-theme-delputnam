@@ -1,3 +1,16 @@
+<!--
 <div class="embed video-player">
 	<iframe class="youtube-player" type="text/html" width="640" height="385" src="//www.youtube.com/embed/{{ index .Params 0 }}?controls=0&rel=0&showinfo=1&theme=light" allowfullscreen frameborder="0"></iframe>
 </div>
+-->
+
+<script type="text/javascript">
+    var embedCode = '<iframe class="youtube-player" type="text/html" width="640" height="385" src="//www.youtube.com/embed/{{ index .Params 0 }}?controls=0&rel=0&showinfo=1&theme=light&autoplay=1" allowfullscreen frameborder="0"></iframe>'
+</script>
+
+<div class="embed video-player full" id="video-container-{{ index .Params 0 }}">
+    <img class="video-thumbnail" src="http://img.youtube.com/vi/{{ index .Params 0 }}/maxresdefault.jpg" onclick="document.getElementById('video-container-{{ index .Params 0 }}').innerHTML = embedCode;initVideoSize();updateVideoSize();" />
+    <img class="video-play-button" src="media/images/common/video-player-button.png" onclick="document.getElementById('video-container-{{ index .Params 0 }}').innerHTML = embedCode;initVideoSize();updateVideoSize();" />
+</div>
+
+

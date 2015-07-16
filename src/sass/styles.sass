@@ -1,0 +1,214 @@
+// Import Bootstrap Compass integration
+@import "bootstrap-compass"
+
+// Import custom Bootstrap variables
+@import "bootstrap-variables"
+
+// Import Bootstrap for Sass
+@import "bootstrap_custom"
+
+//Import Font Awesome
+@import "font-awesome-compass"
+@import "font-awesome"
+
+//Import off-canvas menu styles
+@import "off-canvas"
+
+//Import custom color styles
+@import "colors"
+
+h1, .h1, h2, .h2, .h3 ,h3
+	margin-top: 12.5px
+
+p
+	line-height: 1.8
+	margin: 0 0 1.5em
+
+header
+	margin-bottom: 72px
+	margin-top: 32px
+
+blockquote
+	font-size: $font-size-base
+
+a:focus
+	outline: 0
+
+.logo-wrap img
+	margin-top: 12px
+	width: 100%
+	height: auto
+
+.title-wrap
+	h1
+		margin: 0
+		font-family: 'Oswald', sans-serif
+
+	.description
+		font-size: 1.2em
+
+.center
+	text-align: center
+	
+.post-footer
+	padding-top: 0.5em
+	border-top: 1px solid #ddd
+
+	ul.list-inline
+		margin-bottom: 0
+	
+footer
+	margin-top: 40px
+	padding-top: 40px
+	padding-bottom: 30px
+	text-align: center
+	font-size: 0.8em
+	font-family: $font-family-sans-serif
+	background-color: $gray
+	color: $gray-lighter
+	
+	a
+		text-decoration: underline
+		color: $gray-lighter
+		
+		&:hover
+			color: darken($gray-lighter, 20%)
+
+
+.date
+	color: $gray-light
+	text-transform: uppercase
+	font-size: 0.9em
+	font-family: $font-family-sans-serif
+
+.post + .post
+	margin-top: 80px
+
+.post img
+	max-width: 100%
+
+.alert-primary
+	background-color: $gray-lighter
+	border-color: $gray-lighter
+	
+code.has-jax
+	font: inherit
+	font-size: 100%
+	background: inherit
+	border: inherit
+	color: $text-color
+
+article              
+	figure, .video-player, img
+		max-width: 80%
+		margin: 1.5em 0
+		img
+			margin: 0
+		&.center
+			margin-left: auto
+			margin-right: auto
+		&.full
+			max-width: 100%
+			img
+				max-width: 100%
+		&.medium
+			max-width: 50%
+		&.small
+			max-width: 33%
+		
+.video-player
+	position: relative
+	cursor: pointer
+	
+.video-play-button
+	margin: 0
+	position: absolute
+	top: 50%
+	left: 50%
+	-ms-transform: translate(-50%, -50%)
+	-webkit-transform: translate(-50%, -50%)
+	transform: translate(-50%, -50%)
+	cursor: pointer
+		
+.social-sharing iframe
+	vertical-align: bottom
+				
+img.small
+	max-width: 33%
+
+.popover
+	width: 250px
+	font-size: 1em
+
+figcaption
+	margin-top: 0.5em
+	h4
+		font-size: 0.85em
+		font-style: italic
+		color: $gray
+		margin: 0
+
+.prev-next
+	margin-top: 80px
+
+.pagination
+	display: block
+	margin-top: 80px
+	font-family: $font-family-sans-serif
+	
+.jump-navigation 
+	padding-top: 5px
+
+	.page-link
+		display: inline-block
+		border-radius: 50%
+		height: 28px
+		width: 28px
+		display: inline-block
+		line-height: 28px
+		background-color: $gray-lighter
+
+		a
+			text-decoration: none
+
+		&.active
+			background-color: $brand-primary
+	     
+			& a
+				color: #fff
+
+.footnotes
+	font-size: 0.8em
+
+.footnote-ref
+	.badge
+		font-size: 0.8em
+		font-family: $font-family-sans-serif
+
+.right
+	float: right
+	
+@media (max-width:767px)
+	$font-size-mobile: $font-size-base * 0.83
+	body
+		font-size: $font-size-mobile
+	header
+		text-align: center
+		margin-bottom: 42px
+	blockquote
+		font-size: $font-size-mobile
+	figure
+		max-width: 100%
+		&.medium
+			max-width: 80%
+		&.small
+			max-width: 50%
+	.logo-wrap
+		float: none
+		width: 90px
+		max-width: 33%
+		margin: 24px auto 0 auto
+
+		img
+			margin-top: 0
+
